@@ -1,5 +1,6 @@
 from flask import Flask, request, jsonify, send_from_directory
 from groq import Groq
+from dotenv import load_dotenv
 import os
 load_dotenv()  # loads .env file
 
