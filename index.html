@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>StudyMind — AI Study Assistant</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<header>
+  <div class="logo">Study<span>Mind</span></div>
+  <div class="tagline">AI-Powered Study Assistant</div>
+  <div class="header-badge">by Divya Jain</div>
+</header>
+
+<main>
+  <!-- Notes Input -->
+  <div class="panel" id="notes-panel">
+    <!-- <div class="panel-label">Step 01</div> -->
+    <h2 class="panel-title">Paste Your Notes</h2>
+    <textarea
+      id="notes-input"
+      placeholder="Paste your lecture notes, textbook excerpts, or study material here…"
+    ></textarea>
+    <div class="char-count"><span id="char-count">0</span> characters</div>
+    <div class="btn-row">
+      <button class="btn btn-primary" onclick="summarize()">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 6h16M4 10h16M4 14h10"/></svg>
+        <span>Summarize Notes</span>
+      </button>
+      <button class="btn btn-secondary" onclick="clearAll()">
+        <span>Clear</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Summary Output -->
+  <div class="panel" id="summary-panel">
+    <div class="panel-label">Summary</div>
+    <h2 class="panel-title">AI Summary</h2>
+    <div class="output-area" id="summary-output">
+      <div class="empty-state">
+        <svg width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+          <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 8h10M7 12h10M7 16h6"/>
+        </svg>
+        <p>Summary will appear here</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q&A Panel -->
+  <div class="panel panel-full" id="qa-panel">
+    <div class="corner-mark">&ldquo;</div>
+    <div class="panel-label">Step 02</div>
+    <h2 class="panel-title">Ask a Question</h2>
+    <p style="font-size:0.85rem; color:var(--muted); margin-bottom:20px; line-height:1.6;">
+      Ask anything about your notes — or any topic you're studying.
+    </p>
+    <div class="qa-row">
+      <input
+        class="qa-input"
+        id="question-input"
+        type="text"
+        placeholder="e.g. What is the main concept here? / Explain photosynthesis simply…"
+
+      />
+      <button class="btn btn-primary" onclick="askQuestion()">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        <span>Ask</span>
+      </button>
+    </div>
+    <div class="output-area" id="answer-output">
+      <div class="empty-state">
+        <svg width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3M12 17h.01"/>
+        </svg>
+        <p>Your answer will appear here</p>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <p>StudyMind &mdash; Powered by Groq API &amp; Flask</p>
+  <p>Paste notes · Summarize · Ask questions</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
